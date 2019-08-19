@@ -7,6 +7,7 @@ import { MovieListComponent } from './movie/components/movie-list/movie-list.com
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieCardComponent } from './movie/components/movie-card/movie-card.component';
+import { MovieService } from './movie/services/movie.service';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,9 @@ import { MovieCardComponent } from './movie/components/movie-card/movie-card.com
         FlexLayoutModule,
         BrowserAnimationsModule
     ],
-    providers: [],
+    providers: [
+        MovieService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
