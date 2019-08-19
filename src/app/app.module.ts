@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie/components/movie-list/movie-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MovieCardComponent } from './movie/components/movie-card/movie-card.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        MovieListComponent
+        MovieListComponent,
+        MovieCardComponent
     ],
     imports: [
         BrowserModule,
