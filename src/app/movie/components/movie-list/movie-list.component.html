@@ -1,1 +1,3 @@
-<p>movie-list works!</p>
+<div fxLayout="row wrap">
+    <app-movie-card *ngFor="let movie of movies; trackBy:movie?.id" [movie]="movie" fxFlex="20" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" [routerLink]="['/movies/' + movie.id]"></app-movie-card>
+</div>

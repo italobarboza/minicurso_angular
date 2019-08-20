@@ -1,15 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.scss']
+    selector: 'app-movie-list',
+    templateUrl: './movie-list.component.html',
+    styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
 
-  constructor() { }
+    movies: Array<any>;
+    processing: boolean;
+    endPaginate: boolean;
+    page: number;
 
-  ngOnInit() {
-  }
+    constructor(
+        private movieService: MovieService
+    ) {
+        this.movies = [];
+        this.page = 1;
+        this.processing = true;
+        this.endPaginate = false;
+    }
 
+    ngOnInit() {
+        this.movieService.getPopular(this.page)
+            .then((res) => {
+                this.inserMovies(res.data.results)
+            });
+    }
+
+    @HostListener('window:scroll', ['$event']) onWindowScroll($event) {
+        if (this.processing === false && this.endPaginate === false) {
+            const target = $event.target.documentElement;
+            const scrollPercent = ((target.clientHeight + target.scrollTop) / target.scrollHeight) * 100;
+
+            if (scrollPercent > 95) {
+                this.page++;
+                this.movieService.getPopular(this.page).then((res) => this.inserMovies(res.data.results));
+            }
+        }
+    }
+
+    inserMovies(movies: Array<any>) {
+        if (this.movies.length > 0) {
+            this.movies.push(...movies);
+        } else {
+            this.movies = movies;
+        }
+
+        this.processing = false;
+
+        if (movies.length === 0) {
+            this.endPaginate = true;
+        }
+    }
 }
