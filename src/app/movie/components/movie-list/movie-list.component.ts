@@ -8,7 +8,7 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MovieListComponent implements OnInit {
 
-    movies: Array<any>;
+    movies: Movie[];
     processing: boolean;
     endPaginate: boolean;
     page: number;
@@ -41,7 +41,7 @@ export class MovieListComponent implements OnInit {
         }
     }
 
-    inserMovies(movies: Array<any>) {
+    inserMovies(movies: Movie[]) {
         if (this.movies.length > 0) {
             this.movies.push(...movies);
         } else {
