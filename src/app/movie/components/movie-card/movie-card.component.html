@@ -1,7 +1,6 @@
 <div class="card" fxLayout="column" fxLayoutGap="8px">
     <div matRipple>
-        <img [src]="movie.poster_path" style="width: 300px" />
-        <!-- <app-movie-poster [image]="movie.poster_path" [imageXs]="movie.backdrop_path"></app-movie-poster> -->
+        <app-movie-poster [image]="movie.poster_path" [imageXs]="movie.backdrop_path"></app-movie-poster>
     </div>
     <div fxLayout="column" fxLayoutAlign="center center" fxLayout.xs="row" fxLayoutAlign.xs="space-between center">
         <h2 class="title">
