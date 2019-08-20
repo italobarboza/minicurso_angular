@@ -10,6 +10,7 @@ import { MovieCardComponent } from './movie/components/movie-card/movie-card.com
 import { MovieService } from './movie/services/movie.service';
 import { MoviePosterComponent } from './movie/components/movie-poster/movie-poster.component';
 import { VoteAverageComponent } from './shared/vote-average/vote-average.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { VoteAverageComponent } from './shared/vote-average/vote-average.compone
         BrowserModule,
         AppRoutingModule,
         FlexLayoutModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatProgressSpinnerModule
     ],
     providers: [
         MovieService
