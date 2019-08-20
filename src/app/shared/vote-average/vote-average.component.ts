@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-vote-average',
-  templateUrl: './vote-average.component.html',
-  styleUrls: ['./vote-average.component.scss']
+    selector: 'app-vote-average',
+    templateUrl: './vote-average.component.html',
+    styleUrls: ['./vote-average.component.scss']
 })
-export class VoteAverageComponent implements OnInit {
+export class VoteAverageComponent {
 
-  constructor() { }
+    @Input() note: string;
+    @Input() maxNote: string;
 
-  ngOnInit() {
-  }
+    constructor() { }
 
 }
